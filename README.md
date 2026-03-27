@@ -26,14 +26,14 @@ Predicting a discrete class label based on input features.
 ## Models
 
 ### Regression
-| Model | Source |
-|-------|--------|
-| Linear Regression | scikit-learn |
-| Ridge Regression | scikit-learn |
-| Lasso Regression | scikit-learn |
-| Random Forest Regressor | scikit-learn |
-| XGBoost Regressor | scikit-learn |
-| Linear Regression | implemented from scratch |
+| Model | Source | Parameters | Scaling |
+|-------|--------|------------|---------|
+| Linear Regression | scikit-learn | default | Standardization |
+| Ridge Regression | scikit-learn | alpha=10.0 | Standardization |
+| Lasso Regression | scikit-learn | alpha=1.0 | Standardization |
+| Random Forest Regressor | scikit-learn | n_estimators=100, max_depth=20, min_samples_split=2, min_samples_leaf=3 | none |
+| XGBoost Regressor | scikit-learn | n_estimators=200, max_depth=4, learning_rate=0.06, subsample=0.4, colsample_bytree=0.6 | none |
+| Linear Regression | implemented from scratch | — | — |
 
 ### Classification
 *(coming soon)*
