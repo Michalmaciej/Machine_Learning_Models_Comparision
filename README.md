@@ -101,9 +101,11 @@ Results saved to `Regression/results.txt` after each run.
 | Linear Regression | 0.44 | 1.80 | 0.77 |
 | Ridge (alpha=1.0) | 0.44 | 1.80 | 0.77 |
 | Ridge (alpha=10.0) | 0.44 | 1.80 | 0.77 |
+| SVR (kernel=rbf, C=10.0, epsilon=0.1) | 0.47 | 1.82 | 0.77 |
 | Lasso (alpha=0.1) | 0.68 | 1.88 | 0.75 |
-| Lasso (alpha=1.0) | 1.91 | 2.82 | 0.44 |
+| XGBoost | 0.64 | 1.88 | 0.75 |
 | Random Forest | 1.04 | 2.10 | 0.69 |
+| Lasso (alpha=1.0) | 1.91 | 2.82 | 0.44 |
 
 > **Best model:** Linear Regression / Ridge (alpha=1.0 or 10.0) — R²=0.77, MAE=0.44, RMSE=1.80
 
