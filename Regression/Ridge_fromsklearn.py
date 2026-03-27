@@ -1,0 +1,39 @@
+from data_clean import data_cleaning, standarize
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Ridge
+from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+
+path = "studentperform.csv"
+
+#data preprocessing with standarization
+df, numerical_cols = data_cleaning(path)
+df = standarize(df, numerical_cols)
+
+#splitting data
+X = df.drop("Exam_Score", axis=1)
+y = df["Exam_Score"]
+
+#creating train and test X's and train and test y's
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
+
+#creating ridge model and fitting
+model = Ridge(alpha=10.0)
+model.fit(X_train, y_train)
+
+#predicting y values
+y_pred = model.predict(X_test)
+
+#evaluation of the model
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+
+print(f"MAE:  {mae:.2f}")
+print(f"RMSE: {rmse:.2f}")
+print(f"R²:   {r2:.2f}")
+
+with open("results.txt", "a") as f:
+    f.write(f"Ridge_fromsklearn.py (alpha={model.alpha}): MAE={mae:.2f}, RMSE={rmse:.2f}, R²={r2:.2f}\n")

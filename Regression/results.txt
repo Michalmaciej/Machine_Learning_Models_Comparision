@@ -1,0 +1,6 @@
+RandomForest_fromsklearn.py: MAE=1.04, RMSE=2.10, R²=0.69
+Lasso_fromsklearn.py (alpha=0.1): MAE=0.68, RMSE=1.88, R²=0.75
+Lasso_fromsklearn.py (alpha=1.0): MAE=1.91, RMSE=2.82, R²=0.44
+Ridge_fromsklearn.py (alpha=1.0): MAE=0.44, RMSE=1.80, R²=0.77
+Ridge_fromsklearn.py (alpha=10.0): MAE=0.44, RMSE=1.80, R²=0.77
+Linear_regression_fromsklearn.py: MAE=0.44, RMSE=1.80, R²=0.77
