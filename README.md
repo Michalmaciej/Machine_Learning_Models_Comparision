@@ -33,6 +33,7 @@ Predicting a discrete class label based on input features.
 | Lasso Regression | scikit-learn | alpha=1.0 | Standardization |
 | Random Forest Regressor | scikit-learn | n_estimators=100, max_depth=20, min_samples_split=2, min_samples_leaf=3 | none |
 | XGBoost Regressor | scikit-learn | n_estimators=200, max_depth=4, learning_rate=0.06, subsample=0.4, colsample_bytree=0.6 | none |
+| SVR | scikit-learn | kernel=rbf, C=10.0, epsilon=0.1, gamma=scale | Standardization |
 | Linear Regression | implemented from scratch | — | — |
 
 ### Classification
@@ -53,6 +54,7 @@ Beyond the models themselves, the following ML utilities were implemented manual
 
 ## Regression Dataset — Student Performance
 
+**Source:** [Student Exam Performance Dataset — Kaggle](https://www.kaggle.com/datasets/grandmaster07/student-exam-performance-dataset-analysis)
 **File:** `Regression/studentperform.csv`
 **Rows:** ~6,607 students
 **Target variable:** `Exam_Score` — the final exam score of a student (continuous value)
@@ -120,5 +122,6 @@ machine learning models/
     ├── Ridge_fromsklearn.py
     ├── Lasso_fromsklearn.py
     ├── RandomForest_fromsklearn.py
-    └── Xgboost_fromsklearn.py
+    ├── Xgboost_fromsklearn.py
+    └── SVR_fromsklearn.py
 ```
