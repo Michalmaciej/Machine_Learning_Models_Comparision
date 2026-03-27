@@ -5,7 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 
-path = "studentperform.csv"
+import os
+path = os.path.join(os.path.dirname(__file__), "studentperform.csv")
 
 #data preprocessing
 df, numerical_cols = data_cleaning(path)
@@ -41,6 +42,6 @@ print(f"MAE:  {mae:.2f}")
 print(f"RMSE: {rmse:.2f}")
 print(f"R²:   {r2:.2f}")
 
-with open("results.txt", "a") as f:
+with open(os.path.join(os.path.dirname(__file__), "results.txt"), "a") as f:
     f.write(f"RandomForest_fromsklearn.py: MAE={mae:.2f}, RMSE={rmse:.2f}, R²={r2:.2f}\n")
 
