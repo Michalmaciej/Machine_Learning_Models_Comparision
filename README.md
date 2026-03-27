@@ -111,6 +111,18 @@ Results saved to `Regression/results.txt` after each run.
 
 ---
 
+## Visualizations
+
+### Linear Regression — Actual vs Predicted
+
+![Linear Regression Actual vs Predicted](Regression/plots/linear_reg_sklearn.png)
+
+### Random Forest — Actual vs Predicted
+
+![Random Forest Actual vs Predicted](Regression/plots/randomforest_sklearn.png)
+
+---
+
 ## Project Structure
 
 ```
