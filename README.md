@@ -18,7 +18,6 @@ This project explores and compares machine learning models for two classic probl
 Predicting a continuous numerical value based on input features.
 
 ### Classification
-*(coming soon)*
 Predicting a discrete class label based on input features.
 
 ---
@@ -37,7 +36,15 @@ Predicting a discrete class label based on input features.
 | Linear Regression | implemented from scratch | — | — |
 
 ### Classification
-*(coming soon)*
+| Model | Source | Parameters | Scaling |
+|-------|--------|------------|---------|
+| Logistic Regression | scikit-learn | max_iter=10000, solver=saga, C=6.0 | Standardization |
+| Random Forest Classifier | scikit-learn | n_estimators=300, max_depth=30, min_samples_split=2, min_samples_leaf=1 | none |
+| XGBoost Classifier | scikit-learn | n_estimators=400, max_depth=5, learning_rate=0.1, subsample=0.8, colsample_bytree=0.8 | none |
+| Decision Tree Classifier | scikit-learn | max_depth=30, min_samples_split=5, min_samples_leaf=1 | none |
+| KNN | scikit-learn | n_neighbors=10, weights=distance, metric=euclidean | Standardization |
+| SVM | scikit-learn | kernel=rbf, C=40.0, gamma=scale | Standardization |
+| MLP | scikit-learn | hidden_layer_sizes=(128, 64, 32), activation=relu, learning_rate_init=0.0005 | Standardization |
 
 ---
 
@@ -111,6 +118,55 @@ Results saved to `Regression/results.txt` after each run.
 
 ---
 
+## Classification Dataset — Wine Quality
+
+**Source:** [Wine Quality Dataset — UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/186/wine+quality)
+**File:** `Classification/winequality-white.csv`
+**Rows:** ~4,898 white wines
+**Target variable:** `quality` — wine quality score (3–9, multiclass classification)
+
+### Features
+
+All features are continuous numerical measurements:
+
+| Feature | Description |
+|---------|-------------|
+| fixed acidity | Amount of fixed acids |
+| volatile acidity | Amount of volatile acids (high = unpleasant taste) |
+| citric acid | Amount of citric acid |
+| residual sugar | Sugar remaining after fermentation |
+| chlorides | Amount of salt |
+| free sulfur dioxide | Free SO₂ (prevents microbial growth) |
+| total sulfur dioxide | Total SO₂ |
+| density | Density of wine |
+| pH | Acidity level |
+| sulphates | Sulphate additive level |
+| alcohol | Alcohol percentage |
+
+### Preprocessing
+- No missing values
+- All features standardized (Standard Scaler)
+
+---
+
+## Classification Results
+
+Results saved to `Classification/results.txt` after each run.
+
+| Model | Accuracy | Precision | Recall | F1 |
+|-------|----------|-----------|--------|----|
+| Random Forest | 0.71 | 0.71 | 0.71 | 0.70 |
+| XGBoost | 0.69 | 0.69 | 0.69 | 0.69 |
+| KNN (k=10, weights=distance) | 0.69 | 0.69 | 0.69 | 0.68 |
+| MLP (128, 64, 32) | 0.67 | 0.67 | 0.67 | 0.67 |
+| Decision Tree (max_depth=30) | 0.60 | 0.60 | 0.60 | 0.60 |
+| SVM (kernel=rbf, C=40.0) | 0.60 | 0.60 | 0.60 | 0.59 |
+| Logistic Regression | 0.53 | 0.52 | 0.53 | 0.50 |
+
+> **Best model:** Random Forest — Accuracy=0.71, F1=0.70
+
+---
+
 ## Visualizations
 
 ### Linear Regression — Actual vs Predicted
@@ -128,14 +184,25 @@ Results saved to `Regression/results.txt` after each run.
 ```
 machine learning models/
 ├── README.md
-└── Regression/
-    ├── studentperform.csv
+├── Regression/
+│   ├── studentperform.csv
+│   ├── results.txt
+│   ├── data_clean.py
+│   ├── Linear_regression_fromsklearn.py
+│   ├── Ridge_fromsklearn.py
+│   ├── Lasso_fromsklearn.py
+│   ├── RandomForest_fromsklearn.py
+│   ├── Xgboost_fromsklearn.py
+│   └── SVR_fromsklearn.py
+└── Classification/
+    ├── winequality-white.csv
     ├── results.txt
-    ├── data_clean.py               # preprocessing & scaling utilities
-    ├── Linear_regression_fromsklearn.py
-    ├── Ridge_fromsklearn.py
-    ├── Lasso_fromsklearn.py
+    ├── data_clean.py
+    ├── Logistic_regression_fromsklearn.py
     ├── RandomForest_fromsklearn.py
-    ├── Xgboost_fromsklearn.py
-    └── SVR_fromsklearn.py
+    ├── XGBoost_fromsklearn.py
+    ├── DecisionTree_fromsklearn.py
+    ├── KNN_fromsklearn.py
+    ├── SVM_fromsklearn.py
+    └── MLP_fromsklearn.py
 ```
