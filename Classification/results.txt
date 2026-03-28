@@ -1,0 +1,7 @@
+Logistic_regression_fromsklearn.py: Accuracy=0.53, Precision=0.52, Recall=0.53, F1=0.50
+RandomForest_fromsklearn.py: Accuracy=0.71, Precision=0.71, Recall=0.71, F1=0.70
+XGBoost_fromsklearn.py: Accuracy=0.69, Precision=0.69, Recall=0.69, F1=0.69
+DecisionTree_fromsklearn.py (max_depth=30): Accuracy=0.60, Precision=0.60, Recall=0.60, F1=0.60
+KNN_fromsklearn.py (k=10, weights=distance): Accuracy=0.69, Precision=0.69, Recall=0.69, F1=0.68
+SVM_fromsklearn.py (kernel=rbf, C=40.0): Accuracy=0.60, Precision=0.60, Recall=0.60, F1=0.59
+MLP_fromsklearn.py (layers=(128, 64, 32), activation=relu): Accuracy=0.67, Precision=0.67, Recall=0.67, F1=0.67
