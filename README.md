@@ -46,6 +46,15 @@ Predicting a discrete class label based on input features.
 | SVM | scikit-learn | kernel=rbf, C=40.0, gamma=scale | Standardization |
 | MLP | scikit-learn | hidden_layer_sizes=(128, 64, 32), activation=relu, learning_rate_init=0.0005 | Standardization |
 
+### Clustering
+*(coming soon)*
+Finding natural groupings in data without labeled examples.
+
+| Model | Source |
+|-------|--------|
+| KMeans | scikit-learn |
+| DBSCAN | scikit-learn |
+
 ---
 
 ## Custom Implementations from Scratch
@@ -169,13 +178,21 @@ Results saved to `Classification/results.txt` after each run.
 
 ## Visualizations
 
-### Linear Regression — Actual vs Predicted
+### Regression — Linear Regression — Actual vs Predicted
 
 ![Linear Regression Actual vs Predicted](Regression/plots/linear_reg_sklearn.png)
 
-### Random Forest — Actual vs Predicted
+### Regression — Random Forest — Actual vs Predicted
 
 ![Random Forest Actual vs Predicted](Regression/plots/randomforest_sklearn.png)
+
+### Classification — Random Forest — Confusion Matrix
+
+![Random Forest Confusion Matrix](Classification/plots/random_forest_sklearn.png)
+
+### Classification — Logistic Regression — Confusion Matrix
+
+![Logistic Regression Confusion Matrix](Classification/plots/logistic_regression_sklearn.png)
 
 ---
 
