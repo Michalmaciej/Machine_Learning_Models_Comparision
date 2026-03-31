@@ -10,3 +10,17 @@ Cluster means:
 Cluster                                                                
 0        0.533557  1.202702            1.293205               -1.221293
 1        0.521368 -0.510549           -0.548967                0.518441
+DBSCAN.py: eps=0.32, min_samples=5, n_clusters=2, noise_points=43, Silhouette Score=0.326
+
+Cluster sizes:
+Cluster
+-1     43
+ 0    952
+ 1      5
+
+Cluster means:
+           Gender       Age  Annual Income (k$)  Spending Score (1-100)
+Cluster                                                                
+-1       0.627907  0.561640            0.690058               -0.741644
+ 0       0.521008 -0.032479           -0.040941                0.044214
+ 1       0.400000  1.353968            1.860671               -2.040139
