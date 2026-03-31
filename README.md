@@ -47,13 +47,12 @@ Predicting a discrete class label based on input features.
 | MLP | scikit-learn | hidden_layer_sizes=(128, 64, 32), activation=relu, learning_rate_init=0.0005 | Standardization |
 
 ### Clustering
-*(coming soon)*
 Finding natural groupings in data without labeled examples.
 
-| Model | Source |
-|-------|--------|
-| KMeans | scikit-learn |
-| DBSCAN | scikit-learn |
+| Model | Source | Parameters |
+|-------|--------|------------|
+| KMeans | scikit-learn | n_clusters=2 (optimal by silhouette), n_init=10 |
+| DBSCAN | scikit-learn | coming soon |
 
 ---
 
@@ -196,6 +195,53 @@ Results saved to `Classification/results.txt` after each run.
 
 ---
 
+## Clustering Dataset — Mall Customers
+
+**Source:** [Mall Customer Segmentation Dataset — Kaggle](https://www.kaggle.com/datasets/hosseinbadrnezhad/mall-customer-segmentation-dataset)
+**File:** `Clustering/store_customers.csv`
+**Rows:** 1,000 mall customers
+**Task:** Unsupervised segmentation — no target variable
+
+### Features
+
+| Feature | Type | Description |
+|---------|------|-------------|
+| CustomerID | ID | Removed before clustering |
+| Gender | Binary (M/F) | Customer gender, encoded as M=0, F=1 |
+| Age | Numerical | Customer age |
+| Annual Income (k$) | Numerical | Annual income in thousands of dollars |
+| Spending Score (1-100) | Numerical | Score assigned by the mall based on spending behavior |
+
+### Preprocessing
+- CustomerID dropped
+- Gender encoded: M=0, F=1 (label encoding — no scaling needed)
+- Numerical columns (Age, Annual Income, Spending Score) standardized with Standard Scaler
+
+---
+
+## Clustering Results
+
+Results saved to `Clustering/results.txt` after each run.
+
+### KMeans
+
+The optimal number of clusters was selected automatically using the **Silhouette Score** across k=2–10. The **Elbow Method** plot was also generated to visually confirm the choice.
+
+**Optimal k=2, Silhouette Score=0.521**
+
+| Cluster | Size | Age | Annual Income | Spending Score | Interpretation |
+|---------|------|-----|---------------|----------------|----------------|
+| 0 | 298 | high (+1.20) | high (+1.29) | low (-1.22) | Older, wealthy but low spenders |
+| 1 | 702 | low (-0.51) | low (-0.55) | high (+0.52) | Younger, lower income but active spenders |
+
+*Values are standardized — positive means above average, negative means below average.*
+
+### KMeans — Elbow & Silhouette Plot
+
+![KMeans Elbow and Silhouette](Clustering/kmeans_sklearn.png)
+
+---
+
 ## Project Structure
 
 ```
@@ -211,15 +257,21 @@ machine learning models/
 │   ├── RandomForest_fromsklearn.py
 │   ├── Xgboost_fromsklearn.py
 │   └── SVR_fromsklearn.py
-└── Classification/
-    ├── winequality-white.csv
+├── Classification/
+│   ├── winequality-white.csv
+│   ├── results.txt
+│   ├── data_clean.py
+│   ├── Logistic_regression_fromsklearn.py
+│   ├── RandomForest_fromsklearn.py
+│   ├── XGBoost_fromsklearn.py
+│   ├── DecisionTree_fromsklearn.py
+│   ├── KNN_fromsklearn.py
+│   ├── SVM_fromsklearn.py
+│   └── MLP_fromsklearn.py
+└── Clustering/
+    ├── store_customers.csv
     ├── results.txt
-    ├── data_clean.py
-    ├── Logistic_regression_fromsklearn.py
-    ├── RandomForest_fromsklearn.py
-    ├── XGBoost_fromsklearn.py
-    ├── DecisionTree_fromsklearn.py
-    ├── KNN_fromsklearn.py
-    ├── SVM_fromsklearn.py
-    └── MLP_fromsklearn.py
+    ├── data_cleaning.py
+    ├── KMeans.py
+    └── DBSCAN.py
 ```

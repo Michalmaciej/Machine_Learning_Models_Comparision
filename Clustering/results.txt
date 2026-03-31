@@ -1,0 +1,12 @@
+KMeans.py: optimal_k=2, Silhouette Score=0.521
+
+Cluster sizes:
+Cluster
+0    298
+1    702
+
+Cluster means:
+           Gender       Age  Annual Income (k$)  Spending Score (1-100)
+Cluster                                                                
+0        0.533557  1.202702            1.293205               -1.221293
+1        0.521368 -0.510549           -0.548967                0.518441
