@@ -55,7 +55,7 @@ Finding natural groupings in data without labeled examples.
 | Model | Source | Parameters |
 |-------|--------|------------|
 | KMeans | scikit-learn | n_clusters=2 (optimal by silhouette), n_init=10 |
-| DBSCAN | scikit-learn | coming soon |
+| DBSCAN | scikit-learn | eps=0.32, min_samples=5 |
 
 ---
 
