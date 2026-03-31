@@ -245,6 +245,26 @@ The optimal number of clusters was selected automatically using the **Silhouette
 
 ---
 
+### DBSCAN
+
+The optimal `eps` was selected by analyzing the **K-Distance Plot** — looking for the "elbow" where the distance curve sharply increases. Gender was excluded from clustering as a binary (0/1) feature that dominates the distance space and causes DBSCAN to split purely by gender.
+
+**eps=0.32, min_samples=5, Silhouette Score=0.326**
+
+| Cluster | Size | Interpretation |
+|---------|------|----------------|
+| -1 (noise) | 43 | Outliers — no cluster assigned |
+| 0 | 952 | Main cluster — average customers |
+| 1 | 5 | Micro-cluster — very old, very high income, extremely low spending |
+
+DBSCAN performed significantly worse than KMeans (0.326 vs 0.521 silhouette score) on this dataset. This is expected — the mall customer data has uniformly distributed density without the clear density-separated regions DBSCAN requires. KMeans is a better fit for this type of tabular marketing data with roughly spherical clusters.
+
+### DBSCAN — K-Distance Plot
+
+![DBSCAN K-Distance Plot](Clustering/DBscan_sklearn.png)
+
+---
+
 ## Project Structure
 
 ```
