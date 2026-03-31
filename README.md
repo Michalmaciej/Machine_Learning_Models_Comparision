@@ -1,6 +1,6 @@
 # Machine Learning Models Comparison
 
-This project explores and compares machine learning models for two classic problem types: **regression** and **classification**.
+This project explores and compares machine learning models for three problem types: **regression**, **classification**, and **clustering**.
 
 ---
 
@@ -19,6 +19,9 @@ Predicting a continuous numerical value based on input features.
 
 ### Classification
 Predicting a discrete class label based on input features.
+
+### Clustering
+Finding natural groupings in data without labeled examples (unsupervised learning).
 
 ---
 
