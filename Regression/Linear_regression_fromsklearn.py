@@ -1,6 +1,11 @@
 from data_clean import data_cleaning, standarize
 import numpy as np
 from sklearn.model_selection import train_test_split
+
+#import sys
+#sys.path.append("/Users/michalmaciej/Desktop/learning/machine learning models/helpers")
+#from train_test_split import train_test_split
+
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 

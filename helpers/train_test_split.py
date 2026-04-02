@@ -4,8 +4,10 @@ from typing import Union
 
 ArrayType = Union[np.ndarray, pd.DataFrame, list]
 
-def test_train_split(*arrays: ArrayType, test_size: float = 0.2, train_size: float = None, random_state: float = None) -> ArrayType:
+def train_test_split(*arrays: ArrayType, test_size: float = 0.2, train_size: float = None, random_state: float = None) -> ArrayType:
     
+    arrays = tuple(arr.to_frame() if isinstance(arr, pd.Series) else arr for arr in arrays)
+
     if all(isinstance(arr, pd.DataFrame) for arr in arrays):
     
         if random_state is not None:
