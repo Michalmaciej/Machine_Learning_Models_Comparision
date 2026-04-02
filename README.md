@@ -70,6 +70,43 @@ Beyond the models themselves, the following ML utilities were implemented manual
 
 ---
 
+## Custom train_test_split
+
+**File:** `helpers/train_test_split.py`
+
+A custom implementation of sklearn's `train_test_split` written from scratch. Supports all three common data types and is a drop-in replacement for sklearn's version.
+
+### How it works
+
+1. **Type detection** — checks whether all input arrays are `np.ndarray`, `pd.DataFrame` or `list`. `pd.Series` is automatically converted to `DataFrame`
+2. **Shuffling** — generates a permutation of row indices using `np.random.RandomState` (if `random_state` is set) or `np.random.permutation` (if not). All arrays are shuffled with the same indices to preserve X/y pairing
+3. **Splitting** — calculates the split index from `test_size` or `train_size` and slices each array accordingly
+4. **Return** — returns arrays interleaved as `X_train, X_test, y_train, y_test, ...` for any number of input arrays
+
+### Supported types
+
+| Type | Shuffling method |
+|------|-----------------|
+| `np.ndarray` | direct index `arr[indices]` |
+| `pd.DataFrame` | `arr.iloc[indices].reset_index()` |
+| `list` | list comprehension `[arr[i] for i in indices]` |
+
+### Parameters
+
+```python
+train_test_split(*arrays, test_size=0.2, train_size=None, random_state=None)
+```
+
+### Usage
+
+```python
+from train_test_split import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+---
+
 ## Regression Dataset — Student Performance
 
 **Source:** [Student Exam Performance Dataset — Kaggle](https://www.kaggle.com/datasets/grandmaster07/student-exam-performance-dataset-analysis)
@@ -297,4 +334,7 @@ machine learning models/
     ├── data_cleaning.py
     ├── KMeans.py
     └── DBSCAN.py
+└── helpers/
+    ├── train_test_split.py
+    └── tester.py
 ```
