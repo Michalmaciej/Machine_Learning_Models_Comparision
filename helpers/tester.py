@@ -36,4 +36,3 @@ print(f"X_train len: {len(X_train)}, X_test len: {len(X_test)}")
 print(f"y_train: {y_train}, y_test: {y_test}")
 
 print("x")
-print("y")
