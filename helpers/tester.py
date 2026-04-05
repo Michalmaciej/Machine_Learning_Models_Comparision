@@ -37,4 +37,3 @@ print(f"y_train: {y_train}, y_test: {y_test}")
 
 print("1")
 print("2")
-print(3)
