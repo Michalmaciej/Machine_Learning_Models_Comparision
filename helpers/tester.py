@@ -35,3 +35,4 @@ X_train, X_test, y_train, y_test = train_test_split(X_list, y_list, test_size=0.
 print(f"X_train len: {len(X_train)}, X_test len: {len(X_test)}")
 print(f"y_train: {y_train}, y_test: {y_test}")
 
+print(1)
